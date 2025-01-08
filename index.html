@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smile Coach</title>
+    <!-- Google Material UI CDN -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f8f9fa;
+        }
+
+        .card {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        #faceCanvas {
+            border: 1px solid #ddd;
+            margin-top: 20px;
+        }
+
+        .score-display {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #e91e63;
+            font-family: 'Poppins', sans-serif;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-container {
+            display: none;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .card-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 36px;
+            font-weight: bold;
+            color: #e91e63;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card z-depth-2">
+            <div class="card-content center-align">
+                <span class="card-title">Smile Coach</span>
+                <canvas id="faceCanvas" width="128" height="128"></canvas>
+                <div id="happinessScore" class="score-display">Score: --</div>
+                <div class="button-container">
+                    <button id="startButton" class="btn waves-effect waves-light green">Start</button>
+                    <button id="stopButton" class="btn waves-effect waves-light red" disabled>Stop</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-container">
+        <video id="video" autoplay playsinline width="640" height="480"></video>
+        <canvas id="outputCanvas" width="640" height="480"></canvas>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="face-api.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
